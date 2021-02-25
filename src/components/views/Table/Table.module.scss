@@ -1,0 +1,9 @@
+@import "../../../styles/settings.scss";
+
+.component {
+  padding: $base-size;
+}
+
+.component > * {
+  margin-left: 4rem;
+}
