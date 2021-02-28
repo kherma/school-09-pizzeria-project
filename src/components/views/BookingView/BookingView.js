@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import styles from "./BookingView.module.scss";
 
@@ -13,7 +12,5 @@ const BookingView = () => {
   );
 };
 
-// BookingView.propTypes = {
-// };
 
 export default BookingView;

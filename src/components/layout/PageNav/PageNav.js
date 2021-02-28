@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./PageNav.module.scss";
-// import PropTypes from 'prop-types'
 
 const PageNav = () => {
   return (
@@ -27,8 +26,5 @@ const PageNav = () => {
     </nav>
   );
 };
-
-// PageNav.propTypes = {
-// }
 
 export default PageNav;

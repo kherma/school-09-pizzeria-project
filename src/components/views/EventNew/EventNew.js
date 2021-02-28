@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import styles from "./EventNew.module.scss";
 
 const EventNew = () => {
@@ -9,7 +8,5 @@ const EventNew = () => {
     </div>
   );
 };
-
-// EventNew.propTypes = {};
 
 export default EventNew;

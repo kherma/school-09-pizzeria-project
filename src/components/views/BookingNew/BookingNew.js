@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import styles from "./BookingNew.module.scss";
 
 const BookingNew = () => {
@@ -9,7 +8,5 @@ const BookingNew = () => {
     </div>
   );
 };
-
-// BookingNew.propTypes = {};
 
 export default BookingNew;

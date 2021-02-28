@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import styles from "./EventView.module.scss";
 
@@ -12,8 +11,5 @@ const EventView = () => {
     </div>
   );
 };
-
-// EventView.propTypes = {
-// };
 
 export default EventView;

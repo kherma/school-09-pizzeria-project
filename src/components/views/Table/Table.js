@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 import styles from "./Table.module.scss";
 import { Link } from "react-router-dom";
 
@@ -22,7 +21,5 @@ const Table = () => {
     </div>
   );
 };
-
-// Table.propTypes = {};
 
 export default Table;

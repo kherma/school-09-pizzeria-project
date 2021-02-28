@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import styles from "./OrderView.module.scss";
 
@@ -12,8 +11,5 @@ const OrderView = () => {
     </div>
   );
 };
-
-// OrderView.propTypes = {
-// };
 
 export default OrderView;

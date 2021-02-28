@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import styles from "./Login.module.scss";
 
 const Login = () => {
@@ -9,7 +8,5 @@ const Login = () => {
     </div>
   );
 };
-
-// Login.propTypes = {};
 
 export default Login;

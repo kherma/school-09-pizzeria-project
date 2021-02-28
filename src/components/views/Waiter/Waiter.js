@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import PropTypes from "prop-types";
 import styles from "./Waiter.module.scss";
 import { Link } from "react-router-dom";
 
@@ -15,7 +14,5 @@ const Waiter = () => {
     </div>
   );
 };
-
-// Waiter.propTypes = {};
 
 export default Waiter;
