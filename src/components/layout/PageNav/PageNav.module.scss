@@ -8,3 +8,9 @@
 .link {
   color: inherit;
 }
+
+.verticalLine {
+  border-left: 3px solid #fff;
+  margin-left: $base-size;
+  padding: ($base-size / 2) ($base-size / 2);
+}

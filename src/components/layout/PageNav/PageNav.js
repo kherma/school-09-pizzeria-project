@@ -9,19 +9,11 @@ const PageNav = () => {
       <Button
         className={styles.link}
         component={NavLink}
-        to={`${process.env.PUBLIC_URL}/login`}
-        activeClassName="active"
-      >
-        Login
-      </Button>
-      <Button
-        className={styles.link}
-        component={NavLink}
         exact
-        to={`${process.env.PUBLIC_URL}/`}
+        to={`${process.env.PUBLIC_URL}/dashboard`}
         activeClassName="active"
       >
-        Home
+        Dashboard
       </Button>
       <Button
         className={styles.link}
@@ -47,6 +39,16 @@ const PageNav = () => {
       >
         Kitchen
       </Button>
+      <span className={styles.verticalLine}>
+        <Button
+          className={styles.link}
+          component={NavLink}
+          to={`${process.env.PUBLIC_URL}/login`}
+          activeClassName="active"
+        >
+          Login
+        </Button>
+      </span>
     </nav>
   );
 };

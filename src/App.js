@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout/MainLayout";
 import { StylesProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -37,15 +37,18 @@ const App = () => {
           <ThemeProvider theme={theme}>
             <MainLayout>
               <Switch>
-                <Route
-                  exact
-                  path={`${process.env.PUBLIC_URL}/`}
-                  component={Dashboard}
-                />
+                <Route exact path={`${process.env.PUBLIC_URL}/`}>
+                  <Redirect to={`${process.env.PUBLIC_URL}/login`} />
+                </Route>
                 <Route
                   exact
                   path={`${process.env.PUBLIC_URL}/login`}
                   component={Login}
+                />
+                <Route
+                  exact
+                  path={`${process.env.PUBLIC_URL}/dashboard`}
+                  component={Dashboard}
                 />
                 <Route
                   exact
