@@ -32,7 +32,7 @@
 
 # Waiter's view
 
-- '/waiter'
+- '/waiter' ✅
   - tabel
     - row = table
     - columns (status, time from last status change, available actions)
