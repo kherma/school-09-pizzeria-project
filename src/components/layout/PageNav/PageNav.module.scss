@@ -1,3 +1,10 @@
-.navigation > * {
-  margin-left: 4rem;
+@import "../../../styles/settings.scss";
+
+.component {
+  padding: $base-size 0;
+  margin-left: auto;
+}
+
+.link {
+  color: inherit;
 }
