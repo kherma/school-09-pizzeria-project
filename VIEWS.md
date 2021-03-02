@@ -1,7 +1,7 @@
 # Dashboard
 
 - '/dashboard'
-  - status of current orders (local and remote) ❌
+  - status of current orders (local and remote) ✅
   - list of bookings and events for current day ❌
 
 # Login ✅
