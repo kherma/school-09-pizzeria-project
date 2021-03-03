@@ -4,6 +4,7 @@
   padding: $base-size;
 }
 
-.component > * {
-  margin-left: 4rem;
+.inputGroup {
+  margin: $base-size * 2;
+  text-align: center;
 }

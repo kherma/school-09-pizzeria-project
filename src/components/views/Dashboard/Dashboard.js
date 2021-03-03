@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Dashboard.module.scss";
 import OrderStatusTabel from "../../features/OrderStatusTabel/OrderStatusTabel";
 import RemoteOrderTabel from "../../features/RemoteOrderTabel/RemoteOrderTabel";
+import BookingEventTabel from "../../features/BookingEventTabel/BookingEventTabel";
 
 const demoLocal = [
   { id: "1", lastChange: "12", status: "free", order: null },
@@ -36,6 +37,29 @@ const demoRemote = [
   },
 ];
 
+const demoBooking = [
+  {
+    table: "1",
+    bookings: [
+      { id: "123", type: "booking", name: "Anie", start: 12, end: 13 },
+      { id: "234", type: "booking", name: "Sarah", start: 13.5, end: 14.5 },
+      { id: "345", type: "booking", name: "Lauren", start: 15, end: 17 },
+    ],
+  },
+  {
+    table: "2",
+    bookings: [
+      { id: "456", type: "event", name: "Rachel", start: 12, end: 17 },
+    ],
+  },
+  {
+    table: "3",
+    bookings: [
+      { id: "567", type: "booking", name: "Megan", start: 13.5, end: 14.5 },
+    ],
+  },
+];
+
 const Dashboard = () => {
   return (
     <>
@@ -44,6 +68,9 @@ const Dashboard = () => {
       </div>
       <div className={styles.component}>
         <RemoteOrderTabel data={demoRemote} />
+      </div>
+      <div className={styles.component}>
+        <BookingEventTabel data={demoBooking} />
       </div>
     </>
   );

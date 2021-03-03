@@ -2,7 +2,7 @@
 
 - '/dashboard'
   - status of current orders (local and remote) ✅
-  - list of bookings and events for current day ❌
+  - list of bookings and events for current day ✅
 
 # Login ✅
 
@@ -12,7 +12,7 @@
 
 # Table booking
 
-- '/tables' ❌
+- '/tables' ✅
   - choose date and hour
   - tabel with list of bookings and events
     - 1 column = 1 table
@@ -45,9 +45,9 @@
 - '/waiter/order/:id' ❌
   - same as prev (with set settings + editable)
 
-# Kitchen's view
+# Kitchen's view ✅
 
-- '/kitchen' ❌
+- '/kitchen'
   - list of orders in order
     - table nr / remote nr
     - order info
