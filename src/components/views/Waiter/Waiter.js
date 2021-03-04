@@ -1,22 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types";
+import OrderStatusTable from "../../features/OrderStatusTabel/OrderStatusTabel";
 import styles from "./Waiter.module.scss";
-import OrderStatusTabel from "../../features/OrderStatusTabel/OrderStatusTabel";
+import Paper from "@material-ui/core/Paper";
 
-const demoContent = [
-  { id: "1", lastChange: "12", status: "free", order: null },
-  { id: "2", lastChange: "9", status: "thinking", order: null },
-  { id: "3", lastChange: "5", status: "ordered", order: 123 },
-  { id: "4", lastChange: "20", status: "prepared", order: 234 },
-  { id: "5", lastChange: "3", status: "delivered", order: 345 },
-  { id: "6", lastChange: "11", status: "paid", order: 456 },
-];
+const Waiter = (props) => {
+  const {
+    loading: { active, error },
+    tables,
+  } = props;
 
-const Waiter = () => {
-  return (
-    <div className={styles.component}>
-      <OrderStatusTabel data={demoContent} />
-    </div>
-  );
+  useEffect(() => {
+    const { fetchTables } = props;
+    fetchTables();
+  }, []);
+
+  if (active || !tables.length) {
+    return (
+      <Paper className={styles.component}>
+        <p>Loading...</p>
+      </Paper>
+    );
+  } else if (error) {
+    return (
+      <Paper className={styles.component}>
+        <p>Error! Details:</p>
+        <pre>{error}</pre>
+      </Paper>
+    );
+  } else {
+    return (
+      <div className={styles.component}>
+        <OrderStatusTable data={tables} />
+      </div>
+    );
+  }
+};
+
+Waiter.propTypes = {
+  fetchTables: PropTypes.func,
+  tables: PropTypes.object,
+  loading: PropTypes.shape({
+    active: PropTypes.bool,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  }),
 };
 
 export default Waiter;
