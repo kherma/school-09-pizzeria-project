@@ -4,6 +4,7 @@ import {
   getAll,
   fetchFromAPI,
   getLoadingState,
+  tableChange,
 } from "../../../redux/tablesRedux";
 
 const mapStateToProps = (state) => ({
@@ -13,6 +14,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchTables: () => dispatch(fetchFromAPI()),
+  changeTableStatus: (id, status, order) =>
+    dispatch(tableChange(id, status, order)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Waiter);

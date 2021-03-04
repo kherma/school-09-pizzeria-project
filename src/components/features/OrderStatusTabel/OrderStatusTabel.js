@@ -10,12 +10,12 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
-const renderActions = (status) => {
+const renderActions = (status, id, order, func) => {
   switch (status) {
     case "free":
       return (
         <>
-          <Button>thinking</Button>
+          <Button onClick={() => func(id, status, order)}>thinking</Button>
           <Button
             component={Link}
             to={`${process.env.PUBLIC_URL}/waiter/order/new`}
@@ -36,22 +36,53 @@ const renderActions = (status) => {
     case "ordered":
       return (
         <>
-          <Button>prepared</Button>
+          <Button onClick={() => func(id, status, order)}>prepared</Button>
           <Button>canceled</Button>
         </>
       );
     case "prepared":
-      return <Button>delivered</Button>;
+      return <Button onClick={() => func(id, status, order)}>delivered</Button>;
     case "delivered":
-      return <Button>paid</Button>;
+      return <Button onClick={() => func(id, status, order)}>paid</Button>;
     case "paid":
-      return <Button>free</Button>;
+      return <Button onClick={() => func(id, status, order)}>free</Button>;
     default:
       return null;
   }
 };
 
-const OrderStatusTabel = ({ data }) => {
+const OrderStatusTabel = (props) => {
+  const { data, changeTableStatus } = props;
+  const renderStatus = (id, status, order) => {
+    switch (status) {
+      case "free":
+        status = "thinking";
+        changeTableStatus(id, status, order);
+        break;
+      case "thinking":
+        status = "ordered";
+        changeTableStatus(id, status, order);
+        break;
+      case "ordered":
+        status = "prepared";
+        changeTableStatus(id, status, order);
+        break;
+      case "prepared":
+        status = "delivered";
+        changeTableStatus(id, status, order);
+        break;
+      case "delivered":
+        status = "paid";
+        changeTableStatus(id, status, order);
+        break;
+      case "paid":
+        status = "free";
+        changeTableStatus(id, status, order);
+        break;
+      default:
+        return null;
+    }
+  };
   return (
     <Paper>
       <Table>
@@ -80,7 +111,9 @@ const OrderStatusTabel = ({ data }) => {
                   </Button>
                 )}
               </TableCell>
-              <TableCell>{renderActions(status)}</TableCell>
+              <TableCell>
+                {renderActions(status, id, order, renderStatus)}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -91,6 +124,7 @@ const OrderStatusTabel = ({ data }) => {
 
 OrderStatusTabel.propTypes = {
   data: PropTypes.array,
+  changeTableStatus: PropTypes.func,
 };
 
 export default OrderStatusTabel;

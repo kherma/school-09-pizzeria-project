@@ -8,6 +8,7 @@ const Waiter = (props) => {
   const {
     loading: { active, error },
     tables,
+    changeTableStatus,
   } = props;
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const Waiter = (props) => {
   } else {
     return (
       <div className={styles.component}>
-        <OrderStatusTable data={tables} />
+        <OrderStatusTable data={tables} changeTableStatus={changeTableStatus} />
       </div>
     );
   }
@@ -39,7 +40,7 @@ const Waiter = (props) => {
 
 Waiter.propTypes = {
   fetchTables: PropTypes.func,
-  tables: PropTypes.object,
+  tables: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   loading: PropTypes.shape({
     active: PropTypes.bool,
     error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
