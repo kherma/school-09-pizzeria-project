@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Table.module.scss";
 import BookingEventTabel from "../../features/BookingEventTabel/BookingEventTabel";
+import Grid from "@material-ui/core/Grid";
+import DateFnsUtils from "@date-io/date-fns";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
 
 const demoBooking = [
   {
@@ -25,11 +32,34 @@ const demoBooking = [
   },
 ];
 const Table = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   return (
     <div className={styles.component}>
       <div className={styles.inputGroup}>
-        <input type="date" id="bookingDate" name="bookingDate" />
-        <input type="time" id="bookingTime" name="bookingTime" />
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <Grid container justify="center">
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="MM/dd/yyyy"
+              margin="normal"
+              id="date-picker-inline"
+              label="Date picker inline"
+              value={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+            />
+            <KeyboardTimePicker
+              margin="normal"
+              id="time-picker"
+              label="Time picker"
+              value={selectedDate}
+              onChange={(date) => setSelectedDate(date)}
+              KeyboardButtonProps={{
+                "aria-label": "change time",
+              }}
+            />
+          </Grid>
+        </MuiPickersUtilsProvider>
       </div>
       <BookingEventTabel data={demoBooking} />
     </div>
